@@ -1,3 +1,5 @@
+#include<set>
+using namespace std;
 class SmallestInfiniteSet {
     int start;
     set<int> st;
