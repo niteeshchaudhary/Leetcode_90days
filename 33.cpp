@@ -8,7 +8,7 @@ public:
         if(nums[m]==target){
             return m;
         }
-        if(l==r){
+        if(l>r || l==r){
             return -1;
         }
         if(nums[l]>target  && ((target<nums[m] && nums[l]<=nums[m])||target>nums[m])){
@@ -18,7 +18,7 @@ public:
             return  binsearch(nums,target, m+1,r);
         }
         
-        return  binsearch(nums,target, l,m);
+        return  binsearch(nums,target, l,m-1);
 
     }
     int search(vector<int>& nums, int target) {
