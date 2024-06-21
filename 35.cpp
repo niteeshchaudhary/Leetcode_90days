@@ -9,11 +9,14 @@ public:
                 return l+1;
             return l;
         }
+        if(l>r){
+            return l;
+        }
         if(nums[m]==target){
             return m;
         }
         else if(nums[m]>target){
-            return binsearch(nums,  target, l, m);
+            return binsearch(nums,  target, l, m-1);
         }
 
         return binsearch(nums,  target, m+1, r);
