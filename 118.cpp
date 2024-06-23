@@ -7,7 +7,7 @@ public:
         for(int i=0;i<numRows;i++){
             vector<int> nw(i+1);
             for(int j=0;j<=i;j++){
-                if(j==0 or j==i){
+                if(j==0 || j==i){
                     nw[j]=1;
                 }
                 else{
