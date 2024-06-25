@@ -1,21 +1,19 @@
 #include<cmath>
 #include<vector>
 using namespace std;
+
+
 class Solution {
 public:
-    int ncr(int n,int r){
-        int rr=min(n-r,r);
-        double rs=1.0;
-        for(int i=0;i<rr;i++){
-            rs=rs*(n-i)/(rr-i);
-        }
-        return round(rs);
-    }
     vector<int> getRow(int rowIndex) {
         vector<int> rs(rowIndex+1);
-        for(int i=0;i<=rowIndex;i++){
-            rs[i]=ncr(rowIndex,i);
+        long long int res=1;
+        rs[0]=1;
+        for(int i=1;i<=rowIndex;i++){
+            res=res*(rowIndex-i+1)/(i);
+            rs[i]=res;
         }
         return rs;
     }
 };
+
