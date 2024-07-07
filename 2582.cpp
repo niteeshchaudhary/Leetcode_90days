@@ -7,7 +7,7 @@ public:
             if(r==0){
                 return n;
             }
-            return n-(r);
+            return n-r;
         }else{
             return r+1;
         }
