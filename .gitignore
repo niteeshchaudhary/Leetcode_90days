@@ -1,6 +1,6 @@
 # Prerequisites
 *.d
-test!.cpp
+*!.cpp
 
 # Compiled Object files
 *.slo
