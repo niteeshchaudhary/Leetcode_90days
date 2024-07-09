@@ -9,12 +9,10 @@ class Solution {
 public:
     bool solve(vector<vector<char>>& board,int i,int j) {
         if(j==9){
-            cout<<"next";
             j=j%9;
             i++;
         }
         if(i==9){
-            cout<<"ys\n";
             return true;
         }
         if(board[i][j]!='.'){
@@ -27,8 +25,6 @@ public:
             
             if(!row[i][ch] && !col[j][ch] && !box[3*(i/3)+j/3][ch]){
                 board[i][j]=ch;
-                cout<<i<<" "<<j<<" "<<ch<<"\n";
-                
                 row[i][board[i][j]]=true;
                 col[j][board[i][j]]=true;
                 box[3*(i/3)+j/3][board[i][j]]=true;
@@ -40,12 +36,10 @@ public:
                     board[i][j]='.';
                 }
                 else{
-                    cout<<rs<<".\n";
                     return true;
                 }
             }
         }
-        cout<<i<<" "<<j<<" "<<" .. ..\n";
         return false;
     }
     void solveSudoku(vector<vector<char>>& board) {
