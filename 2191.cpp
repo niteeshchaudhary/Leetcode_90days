@@ -3,8 +3,8 @@
 #include<utility>
 using namespace std;
 
-bool custom(const pair<int,int>& p1,const pair<int,int>& p2){
-    return p1.first<p2.first;
+bool custom(const pair<int,int>& p1, const pair<int,int>& p2){
+    return p1.first < p2.first;
 }
 
 class Solution {
