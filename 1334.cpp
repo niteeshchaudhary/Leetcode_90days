@@ -4,6 +4,89 @@
 
 using namespace std;
 
+
+#define INF 99999
+
+void floydWarshall(vector<vector<int>>& dist,int V)
+{
+    int i, j, k;
+    for (k = 0; k < V; k++) {
+        for (i = 0; i < V; i++) {
+            for (j = 0; j < V; j++) {
+                if (dist[i][j] > (dist[i][k] + dist[k][j])
+                    && (dist[k][j] != INF
+                        && dist[i][k] != INF)){
+                    dist[i][j] = dist[i][k] + dist[k][j];
+                    dist[j][i] = dist[i][j];
+                }
+            }
+        }
+    }
+}
+
+class Solution {
+public:
+    int findTheCity(int n, vector<vector<int>>& edges, int distanceThreshold) {
+        vector<vector<int>> graph(n,vector<int>(n));
+        for(int i=0;i<n;i++){
+            for(int j=0;j<n;j++){
+                graph[i][j]=INF;
+            }
+            graph[i][i]=0;
+        }
+        for(int i=0;i<edges.size();i++){
+            graph[edges[i][0]][edges[i][1]]=edges[i][2];
+            graph[edges[i][1]][edges[i][0]]=edges[i][2];
+        }
+        floydWarshall(graph,n);
+        int cnt=0,mncnt=INF,city=0;
+        for(int i=0;i<n;i++){
+            cnt=0;
+            for(int j=0;j<n;j++){
+                if(i!=j && distanceThreshold>=graph[i][j]){
+                    cnt++;
+                }
+            }
+            if(mncnt>=cnt){
+                mncnt=cnt;
+                city=i;
+            }
+        }
+        return city;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
 void floydWarshall(vector<vector<int>>& dist,int V,vector<int>& ans,int distanceThreshold)
 {
     int i, j, k;
@@ -56,3 +139,4 @@ public:
         return city;
     }
 };
+*/
